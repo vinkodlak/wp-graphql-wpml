@@ -123,7 +123,9 @@ function wp_graphql_wpml_init() {
 }
 
 function force_suppress_filters(array $query_args) {
-  $query_args['suppress_filters'] = true;
+  if (!isset($query_args['suppress_filters'])) {
+    $query_args['suppress_filters'] = true;
+  }
   return $query_args;
 }
 
@@ -131,7 +133,6 @@ function map_language_to_query_args(
   array $query_args,
   array $where_args
 ) {
-  $query_args['suppress_filters'] = true;
   if (!isset($where_args['language'])) {
       return $query_args;
   }
