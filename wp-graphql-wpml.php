@@ -11,7 +11,9 @@ use GraphQLRelay\Relay;
 
 add_action( 'graphql_register_types', 'wp_graphql_wpml_init', 10, 0);
 
-add_filter( 'graphql_map_input_fields_to_wp_query', 'map_language_to_query_args', 1000, 2);
+add_filter( 'graphql_post_object_connection_query_args', 'force_suppress_filters', 10, 1);
+
+add_filter( 'graphql_map_input_fields_to_wp_query', 'map_language_to_query_args', 10, 2);
 
 function wp_graphql_wpml_init() {
 
@@ -120,13 +122,15 @@ function wp_graphql_wpml_init() {
 
 }
 
-
+function force_suppress_filters(array $query_args) {
+  $query_args['suppress_filters'] = true;
+  return $query_args;
+}
 
 function map_language_to_query_args(
   array $query_args,
   array $where_args
 ) {
-  $query_args['suppress_filters'] = true;
   if (!isset($where_args['language'])) {
       return $query_args;
   }
@@ -146,8 +150,8 @@ function map_language_to_query_args(
 
   do_action( 'wpml_switch_language', $lang );
 
-
-  // $query_args['suppress_filters'] = false;
+  // return only selected language
+  $query_args['suppress_filters'] = false;
   $query_args['lang'] = $lang;
 
   return $query_args;
