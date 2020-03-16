@@ -23,6 +23,7 @@ function wp_graphql_wpml_init() {
         $language = 'hrv';
 
         return $language;
+
         
     },
   ]);
