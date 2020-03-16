@@ -13,7 +13,9 @@ add_action( 'graphql_register_types', 'wp_graphql_wpml_init', 10, 0);
 
 add_filter( 'graphql_map_input_fields_to_wp_query', 'map_language_to_query_args', 10, 2);
 
-function wp_graphql_wpml_init() {
+function wp_graphql_wpml_init( $query ) {
+
+  $query->query_vars['suppress_filters'] = true;
 
   $language_codes = [];
 
