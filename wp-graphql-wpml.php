@@ -145,6 +145,8 @@ function map_language_to_query_args(
 
   do_action( 'wpml_switch_language', $lang );
 
+
+  $query_args['suppress_filters'] = true;
   $query_args['lang'] = $lang;
 
   return $query_args;
