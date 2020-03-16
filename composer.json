@@ -1,0 +1,13 @@
+{
+    "name": "vinkodlak/wp-graphql-wpml",
+    "description": "Exposes WPML languages and translations in the GraphQL schema",
+    "type": "wordpress-plugin",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Vinko Vacek",
+            "email": "vinko.vacek@gmail.com"
+        }
+    ],
+    "require": {}
+}
