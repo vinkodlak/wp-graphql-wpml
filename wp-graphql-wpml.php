@@ -67,8 +67,7 @@ function wp_graphql_wpml_init() {
               'slug' => $lang,
             ];
           },
-          // apply_filters( 'wpml_active_languages', NULL )
-          [1,2,3]
+          apply_filters( 'wpml_active_languages', NULL )
         );
 
         // if (isset($fields['name'])) {
