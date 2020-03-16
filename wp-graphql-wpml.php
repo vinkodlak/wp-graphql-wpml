@@ -11,7 +11,7 @@ use GraphQLRelay\Relay;
 
 add_action( 'graphql_register_types', 'wp_graphql_wpml_init', 10, 0);
 
-add_filter( 'graphql_map_input_fields_to_wp_query2', 'map_language_to_query_args', 1000, 2);
+add_filter( 'graphql_map_input_fields_to_wp_query', 'map_language_to_query_args', 1000, 2);
 
 function wp_graphql_wpml_init() {
 
