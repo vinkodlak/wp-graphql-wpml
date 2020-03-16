@@ -9,5 +9,10 @@
             "email": "vinko.vacek@gmail.com"
         }
     ],
+    "autoload": {
+      "psr-4": {
+        "WPGraphQL\\Extensions\\WPML\\": "src/"
+      }
+    },
     "require": {}
 }
