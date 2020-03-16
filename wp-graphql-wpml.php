@@ -50,6 +50,45 @@ function wp_graphql_wpml_init() {
     ]
   ]);
 
+  register_graphql_field('RootQuery', 'languages', [
+    'type' => ['list_of' => 'Language'],
+    'description' => __('List available languages', 'wp-graphql-wpml'),
+    'resolve' => function ($source, $args, $context, $info) {
+        $fields = $info->getFieldSelection();
+
+        $languages = array_map(
+          function ($lang) {
+            return [
+              'id' => Relay::toGlobalId('Language', $lang['language_code']),
+              'code' => $lang['language_code'],
+              'slug' => $lang['language_code'],
+            ];
+          },
+          apply_filters( 'wpml_active_languages', NULL )
+        );
+
+        // if (isset($fields['name'])) {
+        //     foreach (
+        //         pll_languages_list(['fields' => 'name'])
+        //         as $index => $name
+        //     ) {
+        //         $languages[$index]['name'] = $name;
+        //     }
+        // }
+
+        // if (isset($fields['locale'])) {
+        //     foreach (
+        //         pll_languages_list(['fields' => 'locale'])
+        //         as $index => $locale
+        //     ) {
+        //         $languages[$index]['locale'] = $locale;
+        //     }
+        // }
+
+        return $languages;
+    },
+  ]);
+
   register_graphql_field('RootQuery', 'defaultLanguage', [
     'type' => 'Language',
     'description' => __('Default site language', 'wp-graphql-wpml'),
@@ -59,7 +98,7 @@ function wp_graphql_wpml_init() {
 
         $language['code'] = 'hr';
         $language['name'] = 'Hrvatski';
-        $language['local'] = 'hrhr';
+        $language['locale'] = 'hrhr';
         $language['id'] = 'id';
         $language['slug'] = 'slug';
 
