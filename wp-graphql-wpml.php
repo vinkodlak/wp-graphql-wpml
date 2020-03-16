@@ -64,7 +64,7 @@ function wp_graphql_wpml_init() {
               // 'slug' => $lang['language_code'],
               'code' => 'hr',
               'name' => 'tralala',
-              'slug' => $lang,
+              'slug' => $lang['language_code'],
             ];
           },
           apply_filters( 'wpml_active_languages', NULL )
