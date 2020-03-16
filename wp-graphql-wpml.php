@@ -11,6 +11,8 @@ use GraphQLRelay\Relay;
 
 add_action( 'graphql_register_types', 'wp_graphql_wpml_init', 10, 0);
 
+add_filter( 'graphql_map_input_fields_to_wp_query', 'map_language_to_query_args', 10, 2);
+
 function wp_graphql_wpml_init() {
 
   $language_codes = [];
@@ -119,6 +121,32 @@ function wp_graphql_wpml_init() {
 }
 
 
+
+function map_language_to_query_args(
+  array $query_args,
+  array $where_args
+) {
+  if (!isset($where_args['language'])) {
+      return $query_args;
+  }
+
+  $lang = $where_args['language'];
+  unset($where_args['language']);
+
+  if ('all' === $lang) {
+      // No need to do anything. We show all languages by default
+      return $query_args;
+  }
+
+  if ('default' === $lang) {
+      $defaultLanguage = apply_filters( 'wpml_default_language', NULL );
+      $lang = $defaultLanguage['language_code'];
+  }
+
+  $query_args['lang'] = $lang;
+
+  return $query_args;
+}
 
 
 
