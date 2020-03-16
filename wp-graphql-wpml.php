@@ -13,7 +13,6 @@ add_action( 'graphql_register_types', 'wp_graphql_wpml_init', 10, 0);
 
 function wp_graphql_wpml_init() {
 
-  echo 11;
 
   register_graphql_field('RootQuery', 'defaultLanguage', [
     'type' => 'Language',
