@@ -48,7 +48,7 @@ function wp_graphql_wpml_init() {
         'description' => __('Language term slug. Prefer the "code" field if possible (WPML)', 'wp-graphql-wpml'),
       ],
     ]
-  ])
+  ]);
 
   register_graphql_field('RootQuery', 'defaultLanguage', [
     'type' => 'Language',
