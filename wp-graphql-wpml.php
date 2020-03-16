@@ -8,7 +8,7 @@ Author: Vinko Vacek
 */
 
 use GraphQLRelay\Relay;
-
+k
 add_action( 'graphql_register_types', 'wp_graphql_wpml_init', 10, 0);
 
 function wp_graphql_wpml_init() {
@@ -24,7 +24,7 @@ function wp_graphql_wpml_init() {
 
         return $language;
 
-        
+
     },
   ]);
 
