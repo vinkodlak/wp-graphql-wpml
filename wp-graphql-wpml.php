@@ -62,8 +62,9 @@ function wp_graphql_wpml_init() {
               'id' => Relay::toGlobalId('Language', rand()),
               // 'code' => $lang['language_code'],
               // 'slug' => $lang['language_code'],
-              'code' => $lang,
-              'name' => 'tralala'
+              'code' => 'hr',
+              'name' => 'tralala',
+              'slug' => $lang,
             ];
           },
           // apply_filters( 'wpml_active_languages', NULL )
