@@ -148,53 +148,34 @@ function add_post_type_fields(\WP_Post_Type $post_type_object) {
     //     ],
     // ]);
 
-    // register_graphql_field(
-    //     $post_type_object->graphql_single_name,
-    //     'language',
-    //     [
-    //         'type' => 'Language',
-    //         'description' => __('WPML language', 'wpnext'),
-    //         'resolve' => function (
-    //             \WPGraphQL\Model\Post $post,
-    //             $args,
-    //             $context,
-    //             $info
-    //         ) {
-    //             $fields = $info->getFieldSelection();
-    //             $language = [
-    //                 'name' => null,
-    //                 'slug' => null,
-    //                 'code' => null,
-    //             ];
+    register_graphql_field(
+        $post_type_object->graphql_single_name,
+        'language',
+        [
+            'type' => 'Language',
+            'description' => __('WPML language', 'wpnext'),
+            'resolve' => function (
+                \WPGraphQL\Model\Post $post,
+                $args,
+                $context,
+                $info
+            ) {
+                $post_language_details = apply_filters( 'wpml_post_language_details', NULL, $post->ID );
 
-    //             $slug = pll_get_post_language($post->ID, 'slug');
+                if (!$post_language_details) {
+                    return null;
+                }
 
-    //             if (!$slug) {
-    //                 return null;
-    //             }
-
-    //             $language['code'] = $slug;
-    //             $language['slug'] = $slug;
-    //             $language['id'] = Relay::toGlobalId('Language', $slug);
-
-    //             if (isset($fields['name'])) {
-    //                 $language['name'] = pll_get_post_language(
-    //                     $post->ID,
-    //                     'name'
-    //                 );
-    //             }
-
-    //             if (isset($fields['locale'])) {
-    //                 $language['locale'] = pll_get_post_language(
-    //                     $post->ID,
-    //                     'locale'
-    //                 );
-    //             }
-
-    //             return $language;
-    //         },
-    //     ]
-    // );
+                return [
+                  'id' => Relay::toGlobalId('Language', $post_language_details['language_code']),
+                  'code' => $post_language_details['language_code'],
+                  'slug' => $post_language_details['language_code'],
+                  'name' => $post_language_details['native_name'],
+                  'locale' => $post_language_details['locale'],
+                ];
+            },
+        ]
+    );
 
     // register_graphql_field(
     //     $post_type_object->graphql_single_name,
