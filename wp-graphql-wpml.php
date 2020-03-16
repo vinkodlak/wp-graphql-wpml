@@ -135,6 +135,7 @@ function map_language_to_query_args(
 
   if ('all' === $lang) {
       // No need to do anything. We show all languages by default
+      $query_args['suppress_filters'] = true;
       return $query_args;
   }
 
@@ -146,7 +147,7 @@ function map_language_to_query_args(
   do_action( 'wpml_switch_language', $lang );
 
 
-  $query_args['suppress_filters'] = true;
+  $query_args['suppress_filters'] = false;
   $query_args['lang'] = $lang;
 
   return $query_args;
