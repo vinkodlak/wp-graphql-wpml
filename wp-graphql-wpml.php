@@ -32,7 +32,7 @@ function wp_graphql_wpml_init() {
         'description' => __('Language ID (WPML)', 'wp-graphql-wpml'),
       ],
       'name' => [
-        'type' => 'String'
+        'type' => 'String',
         'description' => __('Human readable language name (WPML)', 'wp-graphql-wpml'),
       ],
       'code' => [
