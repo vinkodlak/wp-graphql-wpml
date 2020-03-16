@@ -7,8 +7,8 @@ Description: Adds language meta to posts as result of GraphQL query.
 Author: Vinko Vacek
 */
 
-use GraphQLRelay\Relay;
-k
+//use GraphQLRelay\Relay;
+
 add_action( 'graphql_register_types', 'wp_graphql_wpml_init', 10, 0);
 
 function wp_graphql_wpml_init() {
