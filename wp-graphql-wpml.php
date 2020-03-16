@@ -143,6 +143,8 @@ function map_language_to_query_args(
       $lang = $defaultLanguage['language_code'];
   }
 
+  do_action( 'wpml_switch_language', $lang );
+
   $query_args['lang'] = $lang;
 
   return $query_args;
