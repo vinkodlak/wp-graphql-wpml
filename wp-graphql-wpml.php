@@ -13,14 +13,17 @@ add_action( 'graphql_register_types', 'wp_graphql_wpml_init', 10, 0);
 
 function wp_graphql_wpml_init() {
 
-  // foreach (pll_languages_list() as $lang) {
-  //   $language_codes[strtoupper($lang)] = $lang;
-  // }
+  $language_codes = [];
+
+  foreach (apply_filters( 'wpml_active_languages', NULL ) as $lang) {
+    $language_codes[strtoupper($lang['language_code'])] = $lang['language_code'];
+  }
 
   register_graphql_enum_type('LanguageCodeEnum', [
       'description' => __('Enum of all available language codes', 'wp-graphql-wpml' ),
-      'values' => ['hr'] //$language_codes,
+      'values' => $language_codes,
   ]);
+
 
   register_graphql_object_type('Language', [
     'description' => __('Language (WPML)', 'wp-graphql-wpml'),
@@ -59,12 +62,12 @@ function wp_graphql_wpml_init() {
         $languages = array_map(
           function ($lang) {
             return [
-              'id' => Relay::toGlobalId('Language', rand()),
-              // 'code' => $lang['language_code'],
-              // 'slug' => $lang['language_code'],
-              'code' => 'hr',
-              'name' => 'tralala',
+              'id' => Relay::toGlobalId('Language', $lang['language_code']),
+              'code' => $lang['language_code'],
               'slug' => $lang['language_code'],
+              // 'code' => 'hr',
+              // 'name' => 'tralala',
+              // 'slug' => $lang['language_code'],
             ];
           },
           apply_filters( 'wpml_active_languages', NULL )
