@@ -16,7 +16,7 @@ function wp_graphql_wpml_init() {
   $language_codes = [];
 
   foreach (apply_filters( 'wpml_active_languages', NULL ) as $lang) {
-    $language_codes[strtoupper($lang['language_code'])] = $lang['language_code'];
+    $language_codes[$lang['language_code']] = $lang['language_code'];
   }
 
   register_graphql_enum_type('LanguageCodeEnum', [
