@@ -54,17 +54,20 @@ function wp_graphql_wpml_init() {
     'type' => ['list_of' => 'Language'],
     'description' => __('List available languages', 'wp-graphql-wpml'),
     'resolve' => function ($source, $args, $context, $info) {
-        $fields = $info->getFieldSelection();
+        // $fields = $info->getFieldSelection();
 
         $languages = array_map(
           function ($lang) {
             return [
-              'id' => Relay::toGlobalId('Language', $lang['language_code']),
-              'code' => $lang['language_code'],
-              'slug' => $lang['language_code'],
+              'id' => Relay::toGlobalId('Language', rand()),
+              // 'code' => $lang['language_code'],
+              // 'slug' => $lang['language_code'],
+              'name' => 'tralala'
+              'code' => $lang
             ];
           },
-          apply_filters( 'wpml_active_languages', NULL )
+          // apply_filters( 'wpml_active_languages', NULL )
+          [1,2,3]
         );
 
         // if (isset($fields['name'])) {
