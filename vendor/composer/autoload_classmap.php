@@ -10,5 +10,6 @@ return array(
     'WPGraphQL\\Extensions\\WPML\\LanguageRootQueries' => $baseDir . '/src/LanguageRootQueries.php',
     'WPGraphQL\\Extensions\\WPML\\Loader' => $baseDir . '/src/Loader.php',
     'WPGraphQL\\Extensions\\WPML\\PostObject' => $baseDir . '/src/PostObject.php',
+    'WPGraphQL\\Extensions\\WPML\\TermObject' => $baseDir . '/src/TermObject.php',
     'WPGraphQL\\Extensions\\WPML\\WPMLTypes' => $baseDir . '/src/WPMLTypes.php',
 );
