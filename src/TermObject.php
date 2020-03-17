@@ -29,21 +29,6 @@ class TermObject
             2
         );
 
-        add_filter(
-            'graphql_term_object_insert_term_args',
-            [$this, '__filter_graphql_term_object_insert_term_args'],
-            10,
-            2
-        );
-    }
-
-    function __filter_graphql_term_object_insert_term_args($insert_args, $input)
-    {
-        if (isset($input['language'])) {
-            $insert_args['language'] = $input['language'];
-        }
-
-        return $insert_args;
     }
 
     function __action_graphql_register_types()
