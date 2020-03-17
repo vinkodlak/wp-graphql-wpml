@@ -7,6 +7,8 @@ class Helpers {
     if (!isset($query_args['suppress_filters'])) {
       $query_args['suppress_filters'] = true;
     }
+    print_r($query_args);
+
     return $query_args;
   }
   
