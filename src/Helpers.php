@@ -7,8 +7,6 @@ class Helpers {
     if (!isset($query_args['suppress_filters'])) {
       $query_args['suppress_filters'] = true;
     }
-    print_r($query_args);
-
     return $query_args;
   }
   
@@ -16,8 +14,6 @@ class Helpers {
     array $query_args,
     array $where_args
   ) {
-    $query_args['suppress_filters'] = true;
-    
     if (!isset($where_args['language'])) {
         return $query_args;
     }
@@ -27,7 +23,6 @@ class Helpers {
   
     if ('all' === $lang || 'ALL' === $lang) {
         // No need to do anything. We show all languages by default
-        print_r($query_args);
         return $query_args;
     }
   
