@@ -14,8 +14,6 @@ class Helpers {
     array $query_args,
     array $where_args
   ) {
-    $query_args['suppress_filters'] = true;
-
     if (!isset($where_args['language'])) {
         return $query_args;
     }
