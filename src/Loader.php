@@ -19,7 +19,7 @@ class Loader {
 
     (new WPMLTypes())->init();
     (new PostObject())->init();
-    // (new TermObject())->init();
+    (new TermObject())->init();
     (new LanguageRootQueries())->init();
     // (new MenuItem())->init();
     // (new StringsTranslations())->init();
