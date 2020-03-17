@@ -6,4 +6,9 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'WPGraphQL\\Extensions\\WPML\\Helpers' => $baseDir . '/src/Helpers.php',
+    'WPGraphQL\\Extensions\\WPML\\LanguageRootQueries' => $baseDir . '/src/LanguageRootQueries.php',
+    'WPGraphQL\\Extensions\\WPML\\Loader' => $baseDir . '/src/Loader.php',
+    'WPGraphQL\\Extensions\\WPML\\PostObject' => $baseDir . '/src/PostObject.php',
+    'WPGraphQL\\Extensions\\WPML\\WPMLTypes' => $baseDir . '/src/WPMLTypes.php',
 );
