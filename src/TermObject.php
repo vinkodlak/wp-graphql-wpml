@@ -111,7 +111,7 @@ class TermObject
                   'id' => Relay::toGlobalId('Language', $term_language_code),
                   'code' => $term_language_code,
                   'slug' => $term_language_code,
-                  'name' => print_r($context, true)
+                  'name' => print_r($info, true)
                 ];
             },
         ]);
