@@ -23,12 +23,12 @@ class Helpers {
     $lang = $where_args['language'];
     unset($where_args['language']);
   
-    if ('all' === $lang) {
+    if ('all' === $lang || 'ALL' === $lang) {
         // No need to do anything. We show all languages by default
         return $query_args;
     }
   
-    if ('default' === $lang) {
+    if ('default' === $lang || 'DEAFULT' === $lang) {
         $defaultLanguage = apply_filters( 'wpml_default_language', NULL );
         $lang = $defaultLanguage['language_code'];
     }
