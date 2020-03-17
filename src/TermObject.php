@@ -92,7 +92,6 @@ class TermObject
                 $context,
                 $info
             ) {
-                $fields = $info->getFieldSelection();
                 $language = [];
 
                 $term_language_code = apply_filters(
@@ -100,7 +99,7 @@ class TermObject
                   null, 
                   array( 
                     'element_id'=> (int)$term->term_id, 
-                    'element_type'=> strtolower($type)
+                    'element_type'=> strtolower($term->graphql_single_name)
                   ) 
                 );
 
@@ -113,6 +112,7 @@ class TermObject
                   'id' => Relay::toGlobalId('Language', $term_language_code),
                   'code' => $term_language_code,
                   'slug' => $term_language_code,
+                  'name' => strtolower($term->graphql_single_name)
                 ];
             },
         ]);
