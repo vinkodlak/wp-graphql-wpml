@@ -121,7 +121,7 @@ class TermObject
                   'code' => $term_language_code['language_code'],
                   'slug' => $term_language_code['language_code'],
                   'name' => $term_language_code['native_name'],
-                  'locale' => var_dump($term_language_code, true),
+                  'locale' => print_r($term_language_code, true),
                 ];
             },
         ]);
