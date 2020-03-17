@@ -99,7 +99,7 @@ class TermObject
                   null, 
                   array( 
                     'element_id'=> (int)$term->term_id, 
-                    'element_type'=> strtolower($term->graphql_single_name)
+                    'element_type'=> 'category'
                   ) 
                 );
 
