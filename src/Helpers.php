@@ -25,6 +25,7 @@ class Helpers {
   
     if ('all' === $lang || 'ALL' === $lang) {
         // No need to do anything. We show all languages by default
+        echo 1;
         return $query_args;
     }
   
