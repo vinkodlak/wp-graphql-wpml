@@ -64,7 +64,7 @@ class TermObject
         register_graphql_fields("RootQueryTo${type}ConnectionWhereArgs", [
             'language' => [
                 'type' => 'LanguageCodeFilterEnum',
-                'description' => "Filter by ${type}s by language code (WPML)",
+                'description' => "Filter ${type} by language code (WPML)",
             ],
         ]);
 
@@ -100,7 +100,7 @@ class TermObject
                   null, 
                   array( 
                     'element_id'=> (int)$term->term_id, 
-                    'element_type'=> strtolower($type)
+                    'element_type'=> 'category'
                   ) 
                 );
 
