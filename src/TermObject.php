@@ -83,7 +83,7 @@ class TermObject
         register_graphql_field($type, 'language', [
             'type' => 'Language',
             'description' => __(
-                'List available translations for this term ($type)',
+                'List available translations for this term ('. $type .')',
                 'wpnext'
             ),
             'resolve' => function (
