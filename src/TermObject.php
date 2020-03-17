@@ -109,8 +109,8 @@ class TermObject
                     return [
                       'id' => Relay::toGlobalId('Language', 'ttt'),
                       'code' => $term_language_code['language_code'],
-                      'slug' => 'type'+$type,
-                      'name' => 'tra'+$term->term_id,
+                      'slug' => 'type'.$type,
+                      'name' => $term->term_id,
                       'locale' => 'type',
                     ];
                     return null;
