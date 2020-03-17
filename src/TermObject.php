@@ -96,7 +96,7 @@ class TermObject
                 $language = [];
 
                 $term_language_code = apply_filters(
-                  'wpml_element_language_details', 
+                  'wpml_element_language_code', 
                   null, 
                   array( 
                     'element_id'=> (int)$term->term_id, 
@@ -105,23 +105,14 @@ class TermObject
                 );
 
                 
-                // if (!$term_language_code) {
-                    return [
-                      'id' => Relay::toGlobalId('Language', 'ttt'),
-                      'code' => 'hr',
-                      'slug' => 'type'.$type,
-                      'name' => $term->term_id,
-                      'locale' => print_r($term_language_code, true),
-                    ];
+                if (!$term_language_code) {
                     return null;
-                // }
+                }
 
                 return [
-                  'id' => Relay::toGlobalId('Language', $term_language_code['language_code']),
-                  'code' => $term_language_code['language_code'],
-                  'slug' => $term_language_code['language_code'],
-                  'name' => $term_language_code['native_name'],
-                  // 'locale' => print_r($term_language_code, true),
+                  'id' => Relay::toGlobalId('Language', $term_language_code),
+                  'code' => $term_language_code,
+                  'slug' => $term_language_code,
                 ];
             },
         ]);
