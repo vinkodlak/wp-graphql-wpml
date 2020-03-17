@@ -100,7 +100,7 @@ class TermObject
                   null, 
                   array( 
                     'element_id'=> (int)$term->term_id, 
-                    'element_type'=> 'category'
+                    'element_type'=> strtolower($type)
                   ) 
                 );
 
