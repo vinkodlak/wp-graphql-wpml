@@ -18,7 +18,7 @@ class TermObject
         add_filter(
           'graphql_term_object_connection_query_args', 
           [__NAMESPACE__ . '\\Helpers', 'force_suppress_filters'],
-          9,
+          10,
           1
         );
 
@@ -111,7 +111,6 @@ class TermObject
                   'id' => Relay::toGlobalId('Language', $term_language_code),
                   'code' => $term_language_code,
                   'slug' => $term_language_code,
-                  // 'name' => print_r($term->taxonomyName, true)
                 ];
             },
         ]);
