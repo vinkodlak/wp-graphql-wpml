@@ -99,11 +99,10 @@ class TermObject
                   null, 
                   array( 
                     'element_id'=> (int)$term->term_id, 
-                    'element_type'=> 'category'
+                    'element_type'=> $term->taxonomy
                   ) 
                 );
 
-                
                 if (!$term_language_code) {
                     return null;
                 }
@@ -112,7 +111,6 @@ class TermObject
                   'id' => Relay::toGlobalId('Language', $term_language_code),
                   'code' => $term_language_code,
                   'slug' => $term_language_code,
-                  'name' => print_r($term, true)
                 ];
             },
         ]);
