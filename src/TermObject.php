@@ -96,7 +96,6 @@ class TermObject
                 $language = [];
 
                 $term_language_code = apply_filters(
-                  // 'wpml_element_language_code', 
                   'wpml_element_language_details', 
                   null, 
                   array( 
