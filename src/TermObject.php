@@ -105,16 +105,16 @@ class TermObject
                 );
 
                 
-                if (!$term_language_code) {
+                // if (!$term_language_code) {
                     return [
                       'id' => Relay::toGlobalId('Language', 'ttt'),
                       'code' => $term_language_code['language_code'],
                       'slug' => 'type'.$type,
                       'name' => $term->term_id,
-                      'locale' => 'type',
+                      'locale' => print_r($term_language_code, true),
                     ];
                     return null;
-                }
+                // }
 
                 return [
                   'id' => Relay::toGlobalId('Language', $term_language_code['language_code']),
