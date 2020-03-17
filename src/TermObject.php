@@ -18,7 +18,7 @@ class TermObject
         add_filter(
           'graphql_term_object_connection_query_args', 
           [__NAMESPACE__ . '\\Helpers', 'force_suppress_filters'],
-          09,
+          9,
           1
         );
 
