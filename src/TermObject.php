@@ -112,7 +112,7 @@ class TermObject
                   'id' => Relay::toGlobalId('Language', $term_language_code),
                   'code' => $term_language_code,
                   'slug' => $term_language_code,
-                  'name' => strtolower($term->graphql_single_name)
+                  'name' => print_r($term, true)
                 ];
             },
         ]);
