@@ -111,7 +111,7 @@ class TermObject
                       'code' => $term_language_code['language_code'],
                       'slug' => 'type'.$type,
                       'name' => $term->term_id,
-                      'locale' => print_r($term_language_code, true),
+                      'locale' => $term_language_code,
                     ];
                     return null;
                 // }
